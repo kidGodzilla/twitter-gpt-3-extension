@@ -1,0 +1,42 @@
+{
+  "name": "Twitter GPT-3 Extension",
+  "version": "0.5.1",
+  "manifest_version": 2,
+  "description": "An extension to generate replies to Tweets inside Twitter.com, using GPT-3",
+  "homepage_url": "https://jamesfuthey.com",
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "default_locale": "en",
+  "background": {
+    "scripts": [
+      "js/jquery/jquery.min.js", 
+      "src/bg/background.js"
+    ],
+    "persistent": true
+  },
+  "permissions": [
+    "https://twitter.com/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://twitter.com/*"
+      ],
+      "css": [
+        "src/inject/inject.css"
+      ]
+    },
+    {
+      "matches": [
+        "https://twitter.com/*"
+      ],
+      "js": [
+        "js/jquery/jquery.min.js", 
+        "src/inject/inject.js"
+      ]
+    }
+  ]
+}
